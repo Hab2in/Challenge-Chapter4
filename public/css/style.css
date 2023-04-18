@@ -1,5 +1,7 @@
 body{
     background-color: lightslategrey;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 #side-nav{
     height: 90%;
@@ -16,6 +18,11 @@ body{
     padding-right: 0;
 }
 
+
+
+a {
+    color: #00B7FF;
+}
 
 
 #cars-page{
