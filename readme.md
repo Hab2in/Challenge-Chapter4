@@ -1,7 +1,34 @@
-<!-- # This is Challenge Chapter 4
+# FSW - 3 - Challenge Chapter 4 
 
-### Start App
-`npm run dev`
+## Entity Relationship Diagram
+![](./assets/data.jpg)
 
-### Running App
-This app running on [localhost:3000](localhost:3000/admin/products) -->
+## Menjalankan Server
+
+Langkah pertama kita untuk menjalankan server, dapat menggunakan `npm run start`. Namun, jika ingin menjalankan secara langsung dapat menggunakan nodemon dengan perintah 
+Untuk memulai aplikasi ini lakukan perintah `npm run dev` perintah ini dapat dilakukan pada terminal. 
+
+
+## Tampilan Ketika Berhasil Dijalankan
+Berikut adalah tampilan web yang telah dibuat pada challenge ini 
+ - Home
+
+![](./assets/Home_1.png)
+
+
+  - Add New Car
+
+![](./assets/create.png)
+
+ - Update Car
+
+![](./assets/update.png)
+
+
+- Delete & Alert
+
+![](./assets/Delete.png)
+
+
+
+

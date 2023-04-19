@@ -1,0 +1,79 @@
+<div id="top-ref" class="mx-3 my-4 d-flex align-items-center align-center">
+    <a href="/">Cars</a>
+    <img src="../assets/chevron-right.png" alt="" style="width: 15px; height: fit-content;">
+    <a class="active" href="/">List Car</a>
+</div>
+
+<div class="ms-3 mb-3 d-flex justify-content-between">
+    <h2>List Car</h2>
+    <a href="/add" class="btn btn-primary btn-add d-flex align-items-center">
+        <img class="icon" src="../assets/fi_plus.png" alt="">
+        Add New Car
+    </a>
+</div>
+
+<div name="myRadio" class="ms-3">
+    <a class="btn btn-outline-radio <% if(filter=='all'){ %> chose <% } %>"  href="/">All</a>
+    <a class="btn btn-outline-radio <% if(filter=='small'){ %> chose <% } %>" href="/small">Small</a>
+    <a class="btn btn-outline-radio <% if(filter=='medium'){ %> chose <% } %>" href="/medium">Medium</a>
+    <a class="btn btn-outline-radio <% if(filter=='large'){ %> chose <% } %>" href="/large">Large</a>
+</div>
+
+<div id="cars-card" class="row row-cols-1 row-cols-md-3 g-4 m-2">
+    <!-- perulangan objek -->
+    <% cars.forEach(function(element) { %>
+        <div class="col">
+        <div class="card">
+            <img src="<%- element.dataValues.img -%>" class="card-img-top" alt="...">
+            <div class="card-body">
+            <p><%- element.dataValues.name -%></p>
+            <h5 class="card-title rent-view"><%- element.dataValues.rent -%></h5>
+            <div class="d-flex flex-row card-clock my-3">
+                <img class="icon" src="../assets/fi_clock.png" alt="">
+                <p class="card-text time-view"><%- element.dataValues.updatedAt -%></p>
+            </div>
+            </div>
+            <div class="d-flex p-2">
+            <!-- <a href="/deleteCar/<%- element.dataValues.id -%>" class="btn m-1 d-flex align-items-center justify-content-center btn-delete">
+                <img class="icon" src="../assets/fi_trash.png" alt="">
+                Delete
+            </a> -->
+            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= element.dataValues.id %>" class="btn m-1 d-flex align-items-center justify-content-center btn-delete">
+                <img class="icon" src="../assets/fi_trash.png" alt="">
+                Delete
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal<%= element.dataValues.id %>" tabindex="-1" aria-labelledby="exampleModalLabel<%= element.dataValues.id %>" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-3">
+                    <div class="modal-body text-center">
+                    <img src="../assets/modal-delete-img.png" alt="">
+                    <h5 class="my-3">Menghapus Data Mobil</h5>
+                    <p>Setelah dihapus, data mobil tidak dapat dikembalikan. Yakin ingin menghapus?</p>
+                    </div>
+                    <div class="d-flex">
+                    <button type="button" class="btn m-1 btn-close-modal" data-bs-dismiss="modal">Close</button>
+                    <a href="/api/deleteCar/<%- element.dataValues.id -%>" class="btn m-1 d-flex align-items-center justify-content-center btn-save">
+                        Delete
+                    </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <a href="/update/<%- element.dataValues.id -%>" class="btn m-1 btn-success d-flex align-items-center justify-content-center btn-edit">
+                <img class="icon" src="../assets/fi_edit.png" alt="">
+                Edit
+            </a>
+            </div>
+        </div>
+        </div>    
+    <% }); %>
+</div>
+
+<% if(save == "success") {
+    %>
+    <div class="alert text-center" id="success-alert" role="alert">
+        Data Berhasil Disimpan
+    </div>
+<%} %>

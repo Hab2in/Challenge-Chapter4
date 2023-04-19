@@ -1,0 +1,53 @@
+<div id="top-ref" class="mx-3 my-4 d-flex align-items-center align-center">
+    <a href="">Cars</a>
+    <img src="../assets/chevron-right.png" alt="" style="width: 15px; height: fit-content;">
+    <a href="/">List Car</a>
+    <img src="../assets/chevron-right.png" alt="" style="width: 15px; height: fit-content;">
+    <a class="active" href="">Update Car Information</a>
+</div>
+
+<div class="ms-3 d-flex justify-content-between">
+    <h2>Update Car Information</h2>
+</div>
+
+<form action="/api/updateCar/<%- Cars.dataValues.id -%>" method="POST" enctype="multipart/form-data" class="p-3 my-3">
+    <div class="d-flex align-items-center my-3">
+        <span class="input-label ms-3" id="inputGroup-sizing-default">Nama</span>
+        <input name="name" type="text" class="form-control input-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Avanza" required value="<%- Cars.dataValues.name -%>">
+    </div>
+    <div class="d-flex align-items-center mb-3">
+        <span class="input-label ms-3" id="inputGroup-sizing-default">Sewa Per Hari</span>
+        <input name="rent" type="text" class="form-control input-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Rp.0,-" required value="<%- Cars.dataValues.rent -%>">
+    </div>
+    <div class="d-flex align-items-center mb-3">
+        <span class="input-label ms-3" id="inputGroup-sizing-default">Ukuran</span>
+        <select name="size" type="text" class="form-select input-field" aria-label="Default select example" aria-describedby="inputGroup-sizing-default" required>
+            <% switch(Cars.dataValues.size) {
+                case "Small": %>
+                    <option value="Small" selected>Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                <% break;
+                case "Medium": %>
+                    <option value="Small">Small</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="Large">Large</option>
+                <% break;
+                case "Large": %>
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large" selected>Large</option>
+                <% break;
+            } %>
+        </select>
+    </div>
+    <div class="d-flex align-items-center mb-3">
+        <span class="input-label ms-3" id="inputGroup-sizing-default">Foto</span>
+        <input name="img" type="file" class="form-control input-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required value="<%- Cars.dataValues.img -%>">
+    </div>
+    <div class="d-flex flex-row">
+        <a href="/" class="btn m-1 d-flex btn-cancel">Cancel</a>
+        <button type="submit" class="btn m-1 btn-success d-flex btn-save">Save</button>
+    </div>
+</form>
+
