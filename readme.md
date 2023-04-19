@@ -13,7 +13,7 @@ Untuk memulai aplikasi ini lakukan perintah `npm run dev` perintah ini dapat dil
 Berikut adalah tampilan web yang telah dibuat pada challenge ini 
  - Home
 
-![](./assets/Home_1.png)
+![](./assets/Home1.png)
 
 
   - Add New Car
